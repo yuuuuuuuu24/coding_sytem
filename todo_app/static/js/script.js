@@ -275,9 +275,9 @@ function formatDate(dateStr) {
 
 function priorityName(prio) {
     const names = {
-        'High': '高',
-        'Medium': '中',
-        'Low': '低'
+        'High': '🔥 いそぎ！',
+        'Medium': '🎀 ふつう',
+        'Low': '🌱 まったり'
     };
     return names[prio] || prio;
 }
