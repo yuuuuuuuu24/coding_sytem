@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos - 世界時計ダッシュボード</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-decor">
+        <div class="glow-sphere bubble-1"></div>
+        <div class="glow-sphere bubble-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-earth-americas spin-globe"></i>
+                <h1>CHRONOS</h1>
+                <span class="badge">World Clock</span>
+            </div>
+            <div class="actions">
+                <button id="add-clock-btn" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i> 時計を追加
+                </button>
+            </div>
+        </header>
+
+        <main class="clock-grid" id="clock-grid">
+            <!-- JavaScript will render clock cards here -->
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>世界時間を同期中...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Chronos Dashboard. Designed with elegance.</p>
+        </footer>
+    </div>
+
+    <!-- Add Clock Modal -->
+    <div id="add-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-location-dot"></i> 新しい都市を追加</h2>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-desc">追加したいタイムゾーンの都市を選択してください。</p>
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="city-search" placeholder="都市名を検索...">
+                </div>
+                <div class="timezone-list" id="timezone-options">
+                    <!-- Options populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
